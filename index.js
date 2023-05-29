@@ -36,6 +36,7 @@ function showMonster(monsterDiv){
 }
 
  
+ShowError404Message(); 
 
 //Error Message Function
 function ShowError404Message(){
@@ -55,3 +56,46 @@ monsterNotFoundDiv.append(errorSpan,errorMessage);
 const monstersDiv = document.querySelector(".monsters");
 monstersDiv.append(monsterNotFoundDiv);
 }
+
+
+// search monster event listener
+ document.querySelector("#search-monster").addEventListener("input",function(event){
+  const keyword = event.target.value.toLowerCase();
+
+  const findMonster = document.querySelectorAll(".monster");
+  
+  let notFound = true;
+  
+  for(let monster of findMonster)
+  {
+   const name = monster.children[1].innerText.toLowerCase();
+   const email = monster.children[2].innerText.toLowerCase();
+   
+   if(name.includes(keyword) || email.includes(keyword))
+   {
+     monster.style.display ="block";
+     let notFound = true;
+     
+   }
+
+   else{
+    monster.style.display ="none";
+   }
+   
+  }
+
+   if(notFound)
+   {
+    document.querySelector(".not-found").style.display= "block";
+    
+   }
+
+   else{
+    document.querySelector(".not-found").style.display= "none";
+   }
+  
+  
+ });
+ 
+
+ 
