@@ -73,13 +73,15 @@ monstersDiv.append(monsterNotFoundDiv);
    
    if(name.includes(keyword) || email.includes(keyword))
    {
+      notFound = false;
      monster.style.display ="block";
-     let notFound = true;
      
    }
 
    else{
+    
     monster.style.display ="none";
+    
    }
    
   }
@@ -88,7 +90,7 @@ monstersDiv.append(monsterNotFoundDiv);
    {
     document.querySelector(".not-found").style.display= "block";
     
-   }
+  }
 
    else{
     document.querySelector(".not-found").style.display= "none";
